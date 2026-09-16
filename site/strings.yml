@@ -4,6 +4,10 @@ en:
   other_lang_name: Español
   nav: {home: Home, research: Research, publications: Publications & Talks,
         cv: CV}
+  # Follows his name in the homepage <title> — the blue line of a search result.
+  # The name on its own does not match "leandro bentancur math" or "... udelar",
+  # which is what people actually type. Inner pages keep "<page> — <name>".
+  home_title_suffix: Mathematics - Udelar
   news_heading: Recent & upcoming
   news_soon: soon
   publications_heading: Publications
@@ -23,6 +27,13 @@ en:
   # One per page, for search results and link previews. The homepage uses the
   # tagline from person.yml instead — it already is the one-sentence summary.
   descriptions:
+    # The homepage used to reuse the tagline, which names the mathematics but not
+    # the person, the field or the university — the words someone actually types
+    # when they are looking for him.
+    home: >-
+      Leandro Bentancur, PhD student in mathematics at the Centro de Matemática,
+      Facultad de Ciencias, Universidad de la República (Udelar), Montevideo, Uruguay.
+      Applied algebraic geometry, Christoffel–Darboux kernels and density recovery.
     research: >-
       Applied algebraic geometry: mollified Christoffel–Darboux kernels and the recovery
       of densities from moments, and the Fekete problem on the sphere.
@@ -34,6 +45,7 @@ es:
   other_lang_name: English
   nav: {home: Inicio, research: Investigación, publications: Publicaciones y charlas,
         cv: CV}
+  home_title_suffix: Matemática - Udelar
   news_heading: Reciente y próximo
   news_soon: pronto
   publications_heading: Publicaciones
@@ -51,6 +63,10 @@ es:
   talks_heading: Charlas y presentaciones
   photo_caption: Explicando mi póster en FoCM 2026, Universidad de Viena
   descriptions:
+    home: >-
+      Leandro Bentancur, estudiante de doctorado en matemática en el Centro de Matemática,
+      Facultad de Ciencias, Universidad de la República (Udelar), Montevideo, Uruguay.
+      Geometría algebraica aplicada, núcleos de Christoffel–Darboux y recuperación de densidades.
     research: >-
       Geometría algebraica aplicada: núcleos de Christoffel–Darboux mollificados y la
       recuperación de densidades a partir de momentos, y el problema de Fekete en la esfera.

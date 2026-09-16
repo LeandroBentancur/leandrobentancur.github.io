@@ -6,6 +6,9 @@
 <title>{{ page_title }}</title>
 <meta name="description" content="{{ page_description }}">
 <link rel="canonical" href="{{ canonical }}">
+{% if person.google_site_verification %}
+<meta name="google-site-verification" content="{{ person.google_site_verification }}">
+{% endif %}
 {# The same page in the other language. Without this pair a search engine reads
    / and /es/ as two unrelated pages, or as duplicates of each other. #}
 {% for code, href in alternates|dictsort %}
@@ -29,6 +32,12 @@
    The other cuts are declared in style.css and load only if a page needs them. #}
 <link rel="preload" href="/fonts/source-serif-4-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+{% if jsonld %}
+{# Who this page is about, in the form a search engine can act on. #}
+<script type="application/ld+json">
+{{ jsonld|safe }}
+</script>
+{% endif %}
 </head>
 <body>
 <div class="page">
