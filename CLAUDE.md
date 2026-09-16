@@ -39,6 +39,7 @@ the ANII export live over there, and nothing in this repo can read them.
 | A tailored CV | new file in `../cv-build/profiles/` (~15 lines) | per application | `cd ../cv-build && make` |
 | C.I., date of birth | `../cv-build/private.yml` (outside git) | almost never | `cd ../cv-build && make` |
 | CVUy at ANII | export the .txt, then type the report's list into the web form by hand | before a llamado or renovación | `make reconcile` |
+| The site's own URL | `site_url` in `data/person.yml` | only if the site moves to a custom domain | `make site` |
 
 Lost? `make status` prints what is complete, what is pending and what the
 validator is complaining about.
@@ -59,9 +60,14 @@ if a rule changes here, change it there.
   publicly announced is not recorded here at all — not even flagged — because
   a committed row is readable whether or not it is rendered, and git history
   keeps it after a delete. Ask before adding anything of the kind.
-- **The PhD thesis title registered at ANII is the dropped one** ("Jerarquías
-  poliedrales…"). The current framing is Christoffel–Darboux kernels and
-  density recovery. The validator fails the build if the old title reappears.
+- **The dropped PhD title must never come back.** "Jerarquías poliedrales…"
+  was abandoned; the framing is Christoffel–Darboux kernels and density
+  recovery, and the validator fails the build if the old title reappears.
+  ANII itself is no longer wrong about this — the live CVUy export, checked on
+  2026-09-16, registers the new title — but `data/_cvuy_snapshot.yml` and
+  `reports/cvuy-drift.md` come from a May 2026 export and still claim it is.
+  **Re-export before believing a drift report**, and never repeat its claims
+  about ANII without checking the live record.
 - **Never render from the CVUy snapshot.** It lags and has its own data-entry
   errors (a `http://https://` URL, SOLACE dated 2026 when it was 2025).
 - **One id per thing.** A course that acquires a second name gets a
@@ -83,7 +89,19 @@ Typeset: Source Serif 4 throughout, ink `#1B1E24` on paper `#FCFBF8`, accent
 ink-blue `#2A3F63`, hairline rules, no cards, no motion. The masthead mark is
 the N=12 logarithmic Fekete configuration — the icosahedron — generated in
 `build/motif.py` from real vertex coordinates. Full palette and dark variant in
-`site/static/style.css`; tokens only, never a literal colour in a rule.
+`site/static/style.css`; tokens only, never a literal colour in a rule. Prose
+and figures share one measure, the `--measure` token — a photo is never wider
+than the text beside it.
+
+**The typeface is served from this origin.** `site/static/fonts/` holds the six
+woff2 cuts (normal 400/600 and italic 400, latin and latin-ext), committed, and
+`render_site.py` copies them to `docs/fonts/`. The Google Fonts link is gone on
+purpose: it made every visitor fetch from a third party before a word rendered.
+The `@font-face` rules are at the top of `style.css` — do not re-add the CDN.
+
+**Every page carries a canonical URL, an `hreflang` pair and Open Graph tags**,
+all derived from `site_url` in `person.yml`. `descriptions` in `strings.yml`
+gives the inner pages their own one-line summary; the homepage uses the tagline.
 
 ## Layout
 

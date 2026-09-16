@@ -20,6 +20,15 @@ en:
   related_work: Related work
   talks_heading: Talks and presentations
   photo_caption: Explaining my poster at FoCM 2026, University of Vienna
+  # One per page, for search results and link previews. The homepage uses the
+  # tagline from person.yml instead — it already is the one-sentence summary.
+  descriptions:
+    research: >-
+      Applied algebraic geometry: mollified Christoffel–Darboux kernels and the recovery
+      of densities from moments, and the Fekete problem on the sphere.
+    publications: >-
+      Papers, preprints, talks and posters by Leandro Bentancur, PhD student in
+      mathematics at the Universidad de la República, Uruguay.
 es:
   lang_name: Español
   other_lang_name: English
@@ -41,3 +50,10 @@ es:
   related_work: Trabajos relacionados
   talks_heading: Charlas y presentaciones
   photo_caption: Explicando mi póster en FoCM 2026, Universidad de Viena
+  descriptions:
+    research: >-
+      Geometría algebraica aplicada: núcleos de Christoffel–Darboux mollificados y la
+      recuperación de densidades a partir de momentos, y el problema de Fekete en la esfera.
+    publications: >-
+      Artículos, preprints, charlas y pósters de Leandro Bentancur, estudiante de
+      doctorado en matemática en la Universidad de la República, Uruguay.

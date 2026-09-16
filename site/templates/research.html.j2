@@ -5,11 +5,6 @@
     <h1 class="page-title">{{ s.research_heading }}</h1>
   </section>
 
-  <figure class="wide">
-    <img src="/poster-focm.jpg" alt="{{ s.photo_caption }}" width="1200" height="800">
-    <figcaption>{{ s.photo_caption }}</figcaption>
-  </figure>
-
   <section class="band">
     <h2>{{ s.active_lines }}</h2>
     {% for line in active %}
@@ -47,5 +42,12 @@
     {% endfor %}
   </section>
   {% endif %}
+
+  {# alt is empty on purpose: the caption below already describes the picture,
+     and a screen reader would otherwise read the same sentence twice. #}
+  <figure class="wide">
+    <img src="/poster-focm.jpg" alt="" loading="lazy" width="1200" height="800">
+    <figcaption>{{ s.photo_caption }}</figcaption>
+  </figure>
 
 {% endblock %}

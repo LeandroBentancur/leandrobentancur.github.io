@@ -5,8 +5,11 @@
   end: null
   advisor: Mauricio Velasco
   funding: Comisión Académica de Posgrado (CAP), Udelar
-  # The thesis title registered at ANII is the DROPPED polyhedral-hierarchies one.
-  # Leave blank until the new title is formally registered.
+  # Blank on purpose, not because ANII is wrong. Checked against the live CVUy
+  # export on 2026-09-16: it now registers "Núcleos de Christoffel-Darboux
+  # molificados: recuperación de densidades a partir de momentos con garantías
+  # matemáticas". Fill this in once he confirms that is the wording he wants on
+  # the CV — the repo's snapshot is from May and still shows the dropped title.
   thesis: ""
 - id: especializacion-comunicacion
   degree:

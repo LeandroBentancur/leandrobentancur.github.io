@@ -194,6 +194,10 @@ era "la foto buena".
 `../Pics/`, fuera del repo, así que GitHub no puede rehacer el recorte. Después
 de tocar una receta, corré `make images` y commiteá lo que salga.
 
+Los `.woff2` de `site/static/fonts/` son la tipografía del sitio, servida desde
+tu propio dominio en vez de pedírsela a Google en cada visita. No se tocan y no
+hay que regenerarlas.
+
 ### 8. Un CV a medida para una postulación
 
 No copies un `.tex`. Creá un perfil nuevo en `../cv-build/profiles/`, que son

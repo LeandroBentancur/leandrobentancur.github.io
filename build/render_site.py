@@ -18,6 +18,9 @@ BUILT = {"home", "research", "publications"}
 # under /es/ — the user site sits at the domain root, so links are root-relative
 # and a page at any depth keeps working.
 PAGES = ["home", "research", "publications"]
+# Directories under docs/ that are not pages. The prune step below would
+# otherwise delete them as stale on every build and copy them straight back.
+STATIC_DIRS = {"fonts"}
 
 
 def path_for(page, lang):
@@ -67,6 +70,13 @@ def render():
     person = data["person"]
     mark = motif.svg(size=30)
     full_name = f"{person['name']['first']} {person['name']['last']}"
+    site_url = person["site_url"].rstrip("/")
+
+    def absolute(page, lang):
+        """The real https:// address of a page. Search engines need it spelled
+        out — a root-relative path cannot say which of the two languages a page
+        is, nor which one is the same page in the other language."""
+        return site_url + path_for(page, lang)
 
     for lang in model.LANGS:
         s = data["strings"][lang]
@@ -80,7 +90,14 @@ def render():
                 home_url=path_for("home", lang),
                 other_lang_url=path_for(page, "es" if lang == "en" else "en"),
                 page_title=full_name if not heading else f"{heading} — {full_name}",
-                page_description=model.t(person["tagline"], lang),
+                # The homepage's tagline already is its one-sentence summary;
+                # the inner pages get their own, or they all look identical in
+                # a search result and in a link preview.
+                page_description=(model.t(person["tagline"], lang) if page == "home"
+                                  else s["descriptions"][page]),
+                site_url=site_url,
+                canonical=absolute(page, lang),
+                alternates={l: absolute(page, l) for l in model.LANGS},
                 **context_for(page, data, lang, s))
             target = OUT / path_for(page, lang).lstrip("/") / "index.html"
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -89,8 +106,9 @@ def render():
 
     # A page that stops being built must stop being served. docs/ is generated,
     # so nothing here is precious: drop any directory this run did not write.
-    keep = {OUT} | {OUT / path_for(page, lang).lstrip("/")
-                    for page in PAGES for lang in model.LANGS}
+    keep = {OUT} | {OUT / d for d in STATIC_DIRS} | {
+        OUT / path_for(page, lang).lstrip("/")
+        for page in PAGES for lang in model.LANGS}
     for stale in sorted((d for d in OUT.rglob("*") if d.is_dir() and d not in keep),
                         reverse=True):
         shutil.rmtree(stale)
@@ -98,6 +116,8 @@ def render():
 
     (OUT / "favicon.svg").write_text(motif.document(), encoding="utf-8")
     shutil.copy(ROOT / "site/static/style.css", OUT / "style.css")
+    # The typeface is served from this origin, so it ships with the site.
+    shutil.copytree(ROOT / "site/static/fonts", OUT / "fonts", dirs_exist_ok=True)
     for name in ("photo.jpg", "poster-focm.jpg"):
         src = ROOT / "assets" / name
         if src.exists():

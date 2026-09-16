@@ -5,10 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page_title }}</title>
 <meta name="description" content="{{ page_description }}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="canonical" href="{{ canonical }}">
+{# The same page in the other language. Without this pair a search engine reads
+   / and /es/ as two unrelated pages, or as duplicates of each other. #}
+{% for code, href in alternates|dictsort %}
+<link rel="alternate" hreflang="{{ code }}" href="{{ href }}">
+{% endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ alternates.en }}">
+{# What a link to this page looks like when it is pasted into a chat. #}
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="{{ person.name.first }} {{ person.name.last }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page_description }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:locale" content="{{ 'en_US' if lang == 'en' else 'es_UY' }}">
+<meta property="og:image" content="{{ site_url }}/photo.jpg">
+<meta property="og:image:width" content="760">
+<meta property="og:image:height" content="633">
+<meta property="og:image:alt" content="{{ person.name.first }} {{ person.name.last }}">
+<meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="/style.css">
+{# The body face, fetched in parallel with the stylesheet instead of after it.
+   The other cuts are declared in style.css and load only if a page needs them. #}
+<link rel="preload" href="/fonts/source-serif-4-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -32,6 +51,7 @@
   <footer class="colophon">
     <a href="mailto:{{ person.emails.institutional }}">{{ person.emails.institutional }}</a>
     {% if person.links.github %}<a href="{{ person.links.github }}">GitHub ↗</a>{% endif %}
+    {% if person.links.scholar %}<a href="{{ person.links.scholar }}">Google Scholar ↗</a>{% endif %}
   </footer>
 
 </div>

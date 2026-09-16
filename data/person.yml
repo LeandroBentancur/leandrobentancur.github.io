@@ -12,9 +12,11 @@ role:
 affiliation:
   en: Centro de Matemática, Facultad de Ciencias, Universidad de la República
   es: Centro de Matemática, Facultad de Ciencias, Universidad de la República
+# The line under his name on the homepage. The faculty, not the institute —
+# "Centro de Matemática" says little to anyone outside Uruguay.
 affiliation_short:
-  en: Centro de Matemática, Universidad de la República
-  es: Centro de Matemática, Universidad de la República
+  en: Facultad de Ciencias, Universidad de la República
+  es: Facultad de Ciencias, Universidad de la República
 location:
   en: Montevideo, Uruguay
   es: Montevideo, Uruguay
@@ -32,13 +34,19 @@ emails:
   personal: bentancurleandro@gmail.com   # fine to publish
   # NOTE: the Spanish CVs carry the typo bentancurleandro@gmail.com.uy — invalid TLD.
 
+# Where this site lives. The canonical URL, the hreflang pair and the social
+# preview card are all built from it, so it has to be the real origin.
+site_url: https://leandrobentancur.github.io
+
 links:
   cmat: https://www.cmat.edu.uy/docentes/bentancur-leandro
   github: https://github.com/LeandroBentancur
+  scholar: "https://scholar.google.com/citations?user=_q2nwssAAAAJ&hl=es"
   # Kept as a record; nothing renders it since the footer links were trimmed.
   arxiv: https://arxiv.org/a/bentancur_l_1
   # The public ANII export link, verbatim as CVUy generates it (the "//cv/"
   # double slash is theirs). This is what the nav "CV" item points to.
   cvuy: "https://exportcvuy.anii.org.uy//cv/?9b7af26d7b9a236265eeab75a5790618"
-  orcid: ""     # TODO
-  scholar: ""   # TODO
+  # No ORCID here on purpose: he keeps one only for the forms that demand it,
+  # and does not want it published as an identity.
+  orcid: ""

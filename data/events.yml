@@ -47,7 +47,7 @@
   name: Foundations of Computational Mathematics (FoCM 2026)
   kind: conference
   role: poster
-  title: ""              # TODO: exact poster title as submitted to FoCM
+  title: Moments, Mollified Christoffel–Darboux Kernel and Density Recovery
   place: University of Vienna, Austria
   place_es: Universidad de Viena, Austria
   date: 2026-07
@@ -60,7 +60,7 @@
   kind: conference
   role: attended
   place: Montevideo, Uruguay
-  date: 2026
+  date: 2026-03
   visibility: public
   featured: true
 
@@ -157,9 +157,8 @@
   visibility: public
 
 - id: ecco-2024
-  # CONFLICT to confirm: the English CV says "VII ECCO, Universidad del Valle";
-  # the attendance list and CVUy say VIII, Popayán / Universidad del Cauca.
-  # Popayán is Universidad del Cauca, so VIII is used here.
+  # Was a conflict: the English CV says "VII ECCO, Universidad del Valle".
+  # He confirmed on 2026-09-16 that it is Universidad del Cauca. The CV is wrong.
   name: VIII Encuentro Colombiano de Combinatoria (ECCO)
   kind: conference
   role: poster
