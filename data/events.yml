@@ -73,7 +73,7 @@
   place: Montevideo, Uruguay
   date: 2026-03
   visibility: public
-  featured: true
+
 
 - id: solace-2025
   name: SOLACE seminar, LAAS–CNRS
@@ -85,7 +85,7 @@
   place_es: Toulouse, Francia
   date: 2025-11          # CVUy records 2026 — that is a data-entry error at ANII
   visibility: public
-  featured: true
+
 
 - id: matemax-2025
   name: MATEMAX — Computational Algebra, Algebraic Geometry and Applications II
