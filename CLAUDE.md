@@ -29,8 +29,9 @@ the ANII export live over there, and nothing in this repo can read them.
 | Part | Edit | When | Then run |
 |---|---|---|---|
 | Conferences, talks, visits | `data/events.yml` | after each trip, or the day a future one is agreed | `make site` |
+| What the homepage shows as news | `featured: true` on a row of `data/events.yml` | when something stops being news, or starts | `make site` |
 | Papers | `data/publications.yml` | new preprint, acceptance, publication | `make site`, then `cd ../cv-build && make` |
-| Courses | `data/teaching.yml` — add an offering to the existing course id | start of each semester | `make site`, then `cd ../cv-build && make` |
+| Courses | `data/teaching.yml` — add an offering to the existing course id | start of each semester | `cd ../cv-build && make` (CV only) |
 | Appointments | `data/positions.yml` | new grado or contract | `cd ../cv-build && make` (CV only) |
 | Research framing | `data/research.yml` + `content/research/<id>.{en,es}.md` | when a line starts or ends | `make site`, then `cd ../cv-build && make` |
 | Bio prose | `content/bio.{en,es}.md` | rarely | `make site` |
@@ -66,6 +67,11 @@ if a rule changes here, change it there.
 - **One id per thing.** A course that acquires a second name gets a
   `public_title`, not a second entry. That rule is why "Cadenas de Markov
   Controladas" stopped having four names.
+- **The homepage news list is hand-picked, not computed.** Only rows carrying
+  `featured: true` reach it; recency decides the order, never the membership.
+  Do not quietly re-add a recency rule because the list looks short — he asked
+  to choose the items himself. Unfeaturing hides a row from the homepage and
+  from nowhere else: it stays in the talks list and in the CVs.
 - **i18n:** a field is either a scalar (English) or `{en:, es:}`. In
   `events.yml` use the `name` / `name_es` override form. Quote any value
   containing a comma — YAML flow mappings split on commas and silently eat half
@@ -93,14 +99,25 @@ docs/        generated site, deployed by GitHub Actions
 
 ## Pages
 
-All four exist in both languages: `/`, `/research/`, `/publications/`,
-`/teaching/`, and the same under `/es/`. URL slugs stay English in both
-languages so links never break when wording changes.
+Three, in both languages: `/`, `/research/` and `/publications/`, and the same
+under `/es/`. URL slugs stay English in both languages so links never break when
+wording changes.
+
+A **teaching page** existed and was withdrawn on 2026-09-16: it listed courses
+and appointments, which a visitor can get from the CV, and it will come back
+only when there are materials of his own worth publishing. `data/teaching.yml`
+and `data/positions.yml` stay — the CVs read them. The template, its prose and
+the model functions that fed it (`courses_by_institution`, `positions`,
+`current_course`, and `attended` for the conference list) are in the history:
+`git show 1e0574e:site/templates/teaching.html.j2`. Rebuild from those rather
+than from memory.
 
 Adding a page: template in `site/templates/`, a branch in `context_for()`, the
 name in `BUILT` and `PAGES` in `build/render_site.py`, its heading in
-`TITLES`, and its wording in `site/strings.yml`. Nav links to a page not in
-`BUILT` resolve to `#` rather than to a 404.
+`TITLES`, its wording in `site/strings.yml`, and a nav link in `base.html.j2`.
+Nav links to a page not in `BUILT` resolve to `#` rather than to a 404.
+Removing one is the same list in reverse; `render_site.py` deletes the stale
+directory under `docs/` on the next build, so nothing keeps being served.
 
 Templates run with `StrictUndefined`: an optional key must be probed with
 `p.get('doi')`, never `p.doi`, or the build dies on the entry that lacks it.

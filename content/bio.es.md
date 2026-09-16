@@ -1,8 +1,5 @@
-Trabajo en geometría algebraica aplicada, donde se cruzan la geometría algebraica real,
-la teoría de aproximación y la optimización. Junto a Mauricio Velasco y Didier Henrion
-introdujimos núcleos de Christoffel–Darboux mollificados sobre variedades algebraicas,
-que permiten recuperar una densidad sin conocer la medida de equilibrio de su soporte.
+Estoy realizando el Doctorado en Matemática en la Universidad de la República (Uruguay) bajo la orientación de Mauricio Velasco. Previamente realicé la Licenciatura en Matemática y la Maestría en Matemática en la misma universidad bajo la orientación de Alvaro Rittatore. Mi área de investigación es la geometría algebraica aplicada, utilizando elementos de geometría algebraica real, teoría de aproximación y optimización polinomial. 
 
-Mi segunda línea es el problema de Fekete: cómo ubicar *N* puntos en la esfera para que
-su energía logarítmica sea extremal. Para *N* = 12 la respuesta es el icosaedro — uno de
-los pocos casos resueltos exactamente, y la marca que encabeza esta página.
+Un problema relevante en estadística, optimización y aprendizaje automático es recuperar información geométrica o estadística de una medida a partir de un número finito de sus momentos. Estos momentos pueden estimarse de datos o producirse por una jerarquía de momentos y sumas de cuadrados, que reduce problemas de optimización no convexa a programación semidefinida. En mi doctorado estoy estudiando la recuperación de densidades a partir de momentos utilizando el núcleo de Christoffel-Darboux, una herramienta clásica de la teoría de aproximación y polinomios ortogonales, que aborda este problema a partir de la matriz de momentos truncada.
+
+Si tenés interés en contactarme no lo dudes: [leandrob@cmat.edu.uy](mailto:leandrob@cmat.edu.uy)

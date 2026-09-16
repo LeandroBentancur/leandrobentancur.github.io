@@ -34,6 +34,8 @@ emails:
 
 links:
   cmat: https://www.cmat.edu.uy/docentes/bentancur-leandro
+  github: https://github.com/LeandroBentancur
+  # Kept as a record; nothing renders it since the footer links were trimmed.
   arxiv: https://arxiv.org/a/bentancur_l_1
   # The public ANII export link, verbatim as CVUy generates it (the "//cv/"
   # double slash is theirs). This is what the nav "CV" item points to.

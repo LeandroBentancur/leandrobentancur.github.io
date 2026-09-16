@@ -3,6 +3,7 @@
 :root{
   --paper:#FCFBF8; --ink:#1B1E24; --body:#2E3138; --muted:#6F6E68;
   --accent:#2A3F63; --rule:#E3DFD5; --underline:#B9C2D4;
+  --measure:66ch;                /* the text column: prose and figures share it */
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -54,10 +55,9 @@ h1,h2{font-weight:600; margin:0; text-wrap:balance; color:var(--ink)}
 .what .where{color:var(--muted); font-size:.94rem}
 .kind{font-size:.7rem; text-transform:uppercase; letter-spacing:.11em; color:var(--accent); margin-left:8px}
 
-.bib{display:grid; gap:16px; max-width:66ch}
+.bib{display:grid; gap:16px; max-width:var(--measure)}
 .bib p{margin:0; padding-left:26px; text-indent:-26px; line-height:1.55; color:var(--ink)}
 .bib .meta{color:var(--muted); font-size:.94rem}
-.teach{max-width:60ch; margin:0}
 .colophon{
   border-top:1px solid var(--rule); margin-top:38px; padding-top:18px;
   display:flex; flex-wrap:wrap; gap:8px 28px; font-size:.86rem; color:var(--muted);
@@ -77,10 +77,12 @@ h1,h2{font-weight:600; margin:0; text-wrap:balance; color:var(--ink)}
 .lead{padding:40px 0 4px}
 .page-title{font-size:1.9rem; line-height:1.2; margin:0 0 14px}
 .lead .bio p{margin:0 0 15px; max-width:62ch}
-figure.wide{margin:28px 0 0}
+/* No wider than the prose it sits with: a photo is an illustration here, not
+   a banner. --measure keeps it in step if the measure ever changes. */
+figure.wide{margin:28px 0 0; max-width:var(--measure)}
 figure.wide img{display:block; width:100%; height:auto; border:1px solid var(--rule)}
 figure.wide figcaption{font-size:.82rem; color:var(--muted); margin-top:8px}
-.line{margin:0 0 34px; max-width:66ch}
+.line{margin:0 0 34px; max-width:var(--measure)}
 .line:last-child{margin-bottom:0}
 .line h3{font-size:1.18rem; font-weight:600; color:var(--ink); margin:0 0 6px; line-height:1.3}
 .line .with{font-size:.86rem; color:var(--muted); margin:0 0 12px; letter-spacing:.01em}
@@ -90,17 +92,6 @@ figure.wide figcaption{font-size:.82rem; color:var(--muted); margin-top:8px}
 .related ul{margin:6px 0 0; padding-left:18px}
 .related li{margin:0 0 4px; color:var(--ink)}
 .related a{font-size:.9rem}
-h3.group{
-  font-size:.86rem; font-weight:600; color:var(--ink); margin:26px 0 14px;
-  letter-spacing:.01em;
-}
-h3.group:first-of-type{margin-top:0}
-ul.plain{list-style:none; margin:0; padding:0}
-ul.plain li{margin:0 0 9px; line-height:1.45; color:var(--ink); break-inside:avoid}
-ul.plain .when{margin-right:10px}
-ul.plain .where{display:block; font-size:.88rem}
-.two-col{columns:2; column-gap:44px}
 @media (max-width:720px){
-  .two-col{columns:1}
   .page-title{font-size:1.6rem}
 }

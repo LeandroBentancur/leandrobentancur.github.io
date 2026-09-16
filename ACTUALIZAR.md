@@ -22,8 +22,12 @@ Si volvés después de meses y no te acordás de nada, empezá por acá:
 make status
 ```
 
-Te dice qué hay cargado, qué páginas están hechas y qué se está quejando el
-validador.
+Te dice qué hay cargado, qué está marcado para la portada, qué páginas están
+hechas y de qué se está quejando el validador.
+
+El sitio tiene tres páginas en cada idioma: portada, investigación, y
+publicaciones y charlas. La de enseñanza existió y se retiró; está guardada en
+la historia de git por si algún día querés volver a ponerla.
 
 ---
 
@@ -57,17 +61,25 @@ Abrí `data/events.yml` y agregá una entrada arriba de todo:
   place_es: Ciudad, País          # solo si difiere
   date: 2027-03                   # AAAA-MM, o AAAA si no te acordás del mes
   visibility: public
+  featured: true                  # solo si querés que salga en la portada
 ```
 
 ```sh
 make site
 ```
 
-Esa única entrada alimenta tres cosas a la vez: la lista de novedades de la
-portada, la sección de charlas del CV (si `role` es `oral` o `poster`) y la
-lista de congresos asistidos del CV. Por eso no hay que cargarlo dos veces.
+Esa única entrada alimenta tres cosas a la vez: la sección de charlas del CV
+(si `role` es `oral` o `poster`), la lista de congresos asistidos del CV y, solo
+si le ponés `featured: true`, la lista «Reciente y próximo» de la portada. Por
+eso no hay que cargarlo dos veces.
 
 **Fechas:** mes y año, nunca rangos de días. Es la regla que pediste.
+
+**La portada la elegís vos.** No sale lo más reciente: sale exactamente lo que
+tenga `featured: true`. Sacarle esa línea a un evento lo baja de la portada y no
+lo borra de ningún lado — sigue en las charlas del sitio y en los CV. Lo que
+todavía no pasó va arriba de todo, con la etiqueta «pronto». Si no queda ninguno
+marcado, `make check` te avisa de que la sección quedó vacía.
 
 ### 2. Un evento futuro que todavía no puedo anunciar
 
@@ -101,7 +113,8 @@ nueva: cambiale el `status` a la que ya está y completá los datos de la revist
 ```
 
 ```sh
-make site cv
+make site
+cd ../cv-build && make
 ```
 
 El validador no te deja marcar algo como `published` sin revista, volumen y
@@ -120,8 +133,11 @@ agregale una línea a `offerings`.
     - {year: 2026, institution: cmat, role: assistant}
 ```
 
+Los cursos ya no salen en el sitio —la página de enseñanza se sacó hasta que
+tengas materiales propios para compartir—, así que esto solo toca los CV:
+
 ```sh
-make site cv
+cd ../cv-build && make
 ```
 
 Un curso existe una sola vez, con un nombre por idioma. Si además se anuncia
@@ -149,7 +165,8 @@ Es Markdown simple: párrafos separados por una línea en blanco, `*cursiva*`,
 `**negrita**`, `[texto](url)`. El mismo texto alimenta la portada y el CV.
 
 ```sh
-make site cv
+make site
+cd ../cv-build && make
 ```
 
 ### 7. Foto nueva

@@ -78,14 +78,19 @@ def is_upcoming(value, today=None):
     return (y, m) > (today.year, today.month)
 
 
-def news(data, lang, limit=6):
-    """Public events only. Upcoming first, marked; then the most recent."""
-    pub = [e for e in data["events"] if e.get("visibility") == "public"]
-    soon = sorted((e for e in pub if is_upcoming(e.get("date"))), key=lambda e: ym(e["date"]))
-    past = sorted((e for e in pub if not is_upcoming(e.get("date"))),
+def news(data, lang):
+    """The homepage list, chosen by hand: an event appears only if it carries
+    `featured: true`. Recency is not the rule — he marks what counts as news and
+    unmarks it when it stops being. Upcoming first and marked; then the rest,
+    most recent first. An unfeatured event still reaches the talks list and the
+    CV, so unmarking hides it from the homepage, never from the record."""
+    picked = [e for e in data["events"]
+              if e.get("visibility") == "public" and e.get("featured")]
+    soon = sorted((e for e in picked if is_upcoming(e.get("date"))), key=lambda e: ym(e["date"]))
+    past = sorted((e for e in picked if not is_upcoming(e.get("date"))),
                   key=lambda e: ym(e["date"]), reverse=True)
     rows = []
-    for e in soon + past[: max(0, limit - len(soon))]:
+    for e in soon + past:
         rows.append({
             "when": data["strings"][lang]["news_soon"] if e in soon else fmt_date(e["date"], lang),
             "soon": e in soon,
@@ -131,61 +136,3 @@ def talks(data, lang):
             for e in data["events"]
             if e["visibility"] == "public" and e["role"] in ("oral", "poster")]
     return sorted(rows, key=lambda r: -r["year"])
-
-
-def attended(data, lang):
-    rows = [{"year": ym(e["date"])[0],
-             "name": field(e, "name", lang),
-             "place": field(e, "place", lang),
-             # organising implies attending, so it stays in this list, marked
-             "role": data["strings"][lang]["roles"][e["role"]] if e["role"] == "organizer" else ""}
-            for e in data["events"]
-            if e["visibility"] == "public" and e["role"] not in ("oral", "poster", "visit")]
-    return sorted(rows, key=lambda r: -r["year"])
-
-
-def courses_by_institution(data, lang):
-    """Courses grouped by where they were taught, most recent first."""
-    groups = {}
-    for course in data["teaching"]:
-        for off in course["offerings"]:
-            g = groups.setdefault(off["institution"], {})
-            entry = g.setdefault(course["id"], {
-                "name": t(course["name"], lang),
-                "public_title": t(course.get("public_title"), lang),
-                "years": set()})
-            entry["years"].add(off["year"])
-    out = []
-    for inst_id, courses in groups.items():
-        inst = data["institutions"][inst_id]
-        rows = sorted(courses.values(), key=lambda c: -max(c["years"]))
-        for r in rows:
-            r["years"] = ", ".join(str(y) for y in sorted(r["years"], reverse=True))
-        out.append({"institution": f"{t(inst['name'], lang)}, {t(inst['faculty'], lang)}"
-                    if inst.get("faculty") else t(inst["name"], lang),
-                    "courses": rows,
-                    "latest": max(max(int(y) for y in c["years"].split(", ")) for c in rows)})
-    return sorted(out, key=lambda g: -g["latest"])
-
-
-def positions(data, lang):
-    rows = []
-    for p in data["positions"]:
-        inst = data["institutions"][p["institution"]]
-        end = str(p["end"])[:4] if p["end"] else data["strings"][lang]["present"]
-        rows.append({"span": f"{str(p['start'])[:4]}–{end}",
-                     "role": t(p["role"], lang),
-                     "institution": t(inst["name"], lang) + (
-                         f", {t(inst['faculty'], lang)}" if inst.get("faculty") else ""),
-                     "project": p.get("project", "")})
-    return rows
-
-
-def current_course(data, lang):
-    """The course with the most recent offering — the one the bio mentions."""
-    best, best_year = None, -1
-    for course in data["teaching"]:
-        for off in course["offerings"]:
-            if off["year"] > best_year:
-                best, best_year = course, off["year"]
-    return t(best["name"], lang) if best else ""

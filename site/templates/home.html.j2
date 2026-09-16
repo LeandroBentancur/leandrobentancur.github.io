@@ -6,7 +6,6 @@
       <p class="affil">{{ person.role[lang] }} · {{ person.affiliation_short[lang] }}</p>
       <h1 class="tagline">{{ person.tagline[lang] }}</h1>
       <div class="bio">{{ bio|safe }}</div>
-      <p class="contact">{{ person.emails.institutional }} · {{ person.location[lang] }}</p>
     </div>
     <figure class="portrait">
       <img src="/photo.jpg" alt="{{ person.name.first }} {{ person.name.last }}"
@@ -49,12 +48,6 @@
       {% endfor %}
     </div>
     <p class="contact"><a href="{{ url('publications') }}">{{ s.all_publications }} →</a></p>
-  </section>
-
-  <section class="band">
-    <h2>{{ s.teaching_heading }}</h2>
-    <p class="teach">{{ s.teaching_blurb.replace('{course}', current_course) }}
-      <a href="{{ url('teaching') }}">{{ s.teaching_link }}</a>.</p>
   </section>
 
 {% endblock %}

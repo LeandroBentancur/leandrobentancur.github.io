@@ -13,11 +13,11 @@ ROOT = model.ROOT
 OUT = ROOT / "docs"
 # Pages that actually exist. Nav links to anything else resolve to "#" rather
 # than to a 404 — add a name here the moment its template lands.
-BUILT = {"home", "research", "publications", "teaching"}
+BUILT = {"home", "research", "publications"}
 # Where each page is written, relative to docs/. English at the root, Spanish
 # under /es/ — the user site sits at the domain root, so links are root-relative
 # and a page at any depth keeps working.
-PAGES = ["home", "research", "publications", "teaching"]
+PAGES = ["home", "research", "publications"]
 
 
 def path_for(page, lang):
@@ -40,11 +40,9 @@ def context_for(page, data, lang, s):
             news=model.news(data, lang),
             publications=[{**p, "title": model.t(p["title"], lang),
                            "authors": model.authors_html(p, person, s["and"])}
-                          for p in data["publications"]],
-            current_course=model.current_course(data, lang))
+                          for p in data["publications"]])
     if page == "research":
-        return dict(intro=model.content("research-intro", lang),
-                    active=model.research_lines(data, lang, "active"),
+        return dict(active=model.research_lines(data, lang, "active"),
                     past=model.research_lines(data, lang, "past"))
     if page == "publications":
         person = data["person"]
@@ -52,19 +50,13 @@ def context_for(page, data, lang, s):
             publications=[{**p, "title": model.t(p["title"], lang),
                            "authors": model.authors_html(p, person, s["and"])}
                           for p in data["publications"]],
-            talks=model.talks(data, lang),
-            attended=model.attended(data, lang))
-    if page == "teaching":
-        return dict(intro=model.content("teaching-intro", lang),
-                    groups=model.courses_by_institution(data, lang),
-                    positions=model.positions(data, lang))
+            talks=model.talks(data, lang))
     raise ValueError(page)
 
 
 TITLES = {"home": None,
           "research": "research_heading",
-          "publications": "nav.publications",
-          "teaching": "teaching_heading"}
+          "publications": "nav.publications"}
 
 
 def render():
@@ -94,6 +86,15 @@ def render():
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(html, encoding="utf-8")
             print(f"  {target.relative_to(ROOT)}")
+
+    # A page that stops being built must stop being served. docs/ is generated,
+    # so nothing here is precious: drop any directory this run did not write.
+    keep = {OUT} | {OUT / path_for(page, lang).lstrip("/")
+                    for page in PAGES for lang in model.LANGS}
+    for stale in sorted((d for d in OUT.rglob("*") if d.is_dir() and d not in keep),
+                        reverse=True):
+        shutil.rmtree(stale)
+        print(f"  removed {stale.relative_to(ROOT)}/ — no longer a page")
 
     (OUT / "favicon.svg").write_text(motif.document(), encoding="utf-8")
     shutil.copy(ROOT / "site/static/style.css", OUT / "style.css")

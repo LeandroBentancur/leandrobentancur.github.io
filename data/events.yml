@@ -13,6 +13,12 @@
 #             marking a committed row "private" hides it from the page, not
 #             from anyone reading the repo.
 # i18n:       fields are English; add name_es / place_es only when they differ.
+# featured:   true, and only then does the event reach the homepage's "Recent &
+#             upcoming" list. That list is chosen by hand, not by recency: mark
+#             what a visitor should see, unmark it when it stops being news.
+#             Unmarked events still reach the talks list and the CV, so removing
+#             the line hides an event from the homepage, never from the record.
+#             Anything still in the future sits at the top, tagged "soon".
 
 - id: laas-visit-2026
   name: Research visit, LAAS–CNRS
@@ -24,6 +30,7 @@
   place_es: Toulouse, Francia
   date: 2026-09          # 7–11 Sep; the page shows the month only
   visibility: public
+  featured: true
 
 - id: albatross-2026
   name: Albatross 2026
@@ -34,6 +41,7 @@
   place_es: París, Francia
   date: 2026-09          # 1–4 Sep 2026
   visibility: public
+  featured: true
 
 - id: focm-2026
   name: Foundations of Computational Mathematics (FoCM 2026)
@@ -44,6 +52,7 @@
   place_es: Universidad de Viena, Austria
   date: 2026-07
   visibility: public
+  featured: true
 
 - id: clapem-2026
   name: XVII CLAPEM — Latin American Congress of Probability and Mathematical Statistics
@@ -53,6 +62,7 @@
   place: Montevideo, Uruguay
   date: 2026
   visibility: public
+  featured: true
 
 - id: prob-stat-seminar-2026
   name: Probability and Statistics Seminar, Udelar
@@ -63,6 +73,7 @@
   place: Montevideo, Uruguay
   date: 2026-03
   visibility: public
+  featured: true
 
 - id: solace-2025
   name: SOLACE seminar, LAAS–CNRS
@@ -74,6 +85,7 @@
   place_es: Toulouse, Francia
   date: 2025-11          # CVUy records 2026 — that is a data-entry error at ANII
   visibility: public
+  featured: true
 
 - id: matemax-2025
   name: MATEMAX — Computational Algebra, Algebraic Geometry and Applications II

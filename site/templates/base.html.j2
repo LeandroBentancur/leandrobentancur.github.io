@@ -22,7 +22,6 @@
       <a href="{{ home_url }}"{% if page == 'home' %} aria-current="page"{% endif %}>{{ s.nav.home }}</a>
       <a href="{{ url('research') }}"{% if page == 'research' %} aria-current="page"{% endif %}>{{ s.nav.research }}</a>
       <a href="{{ url('publications') }}"{% if page == 'publications' %} aria-current="page"{% endif %}>{{ s.nav.publications }}</a>
-      <a href="{{ url('teaching') }}"{% if page == 'teaching' %} aria-current="page"{% endif %}>{{ s.nav.teaching }}</a>
       <a href="{{ person.links.cvuy or '#' }}">{{ s.nav.cv }} ↗</a>
       <a class="lang" href="{{ other_lang_url }}">{{ s.other_lang_name }}</a>
     </nav>
@@ -32,9 +31,7 @@
 
   <footer class="colophon">
     <a href="mailto:{{ person.emails.institutional }}">{{ person.emails.institutional }}</a>
-    <a href="mailto:{{ person.emails.personal }}">{{ person.emails.personal }}</a>
-    {% if person.links.cvuy %}<a href="{{ person.links.cvuy }}">CVUy ↗</a>{% endif %}
-    {% if person.links.arxiv %}<a href="{{ person.links.arxiv }}">arXiv ↗</a>{% endif %}
+    {% if person.links.github %}<a href="{{ person.links.github }}">GitHub ↗</a>{% endif %}
   </footer>
 
 </div>

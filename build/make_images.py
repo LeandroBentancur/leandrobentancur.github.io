@@ -19,11 +19,11 @@ RECIPES = {
         "width": 760,
         "quality": 82,
     },
-    # Research page: explaining the poster at FoCM 2026, Vienna. Cropped to drop
-    # the out-of-focus head on the right; nothing else altered.
+    # Research page: explaining his poster at FoCM 2026, Vienna. The whole frame,
+    # uncropped — it sits at the width of the text column, so it does not need to
+    # be tightened. 1200px is twice that width, for high-density screens.
     "poster-focm.jpg": {
         "src": "Poster_FOCM.jpg",
-        "crop": "1560x1040+300+120",
         "width": 1200,
         "quality": 82,
     },

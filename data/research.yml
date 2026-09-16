@@ -18,14 +18,9 @@
     [Diego Armentano, Federico Carrasco, Marcelo Fiori, Pedro Raigorodsky,
      Matías Valdés, Mauricio Velasco]
 
-# Past line — the MSc work. Shown on Research under "Earlier work", kept in the CV.
-- id: affine-extensions
-  status: past
-  order: 3
-  title:
-    en: Representation theory of affine extensions of abelian varieties
-    es: Teoría de representaciones de extensiones afines de variedades abelianas
-  collaborators: [Alvaro Rittatore]
+# The MSc line (affine extensions of abelian varieties) was removed on 2026-09-16.
+# The degree and its thesis stay in education.yml, and the talks stay in events.yml.
+# The "Earlier work" section still works — it simply has nothing to show.
 
 # DROPPED 2026: "Jerarquías poliedrales para la optimización polinomial en espacios
 # homogéneos". Still registered as the PhD title at ANII — fix at the source, never

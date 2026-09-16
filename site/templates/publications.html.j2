@@ -40,14 +40,4 @@
     </div>
   </section>
 
-  <section class="band">
-    <h2>{{ s.attended_heading }}</h2>
-    <ul class="plain two-col">
-      {% for e in attended %}
-      <li><span class="when">{{ e.year }}</span> {{ e.name }}{% if e.role %}<span class="kind">{{ e.role }}</span>{% endif %}
-        <span class="where">{{ e.place }}</span></li>
-      {% endfor %}
-    </ul>
-  </section>
-
 {% endblock %}

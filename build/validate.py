@@ -37,6 +37,8 @@ def check(data):
             errors.append(f"{where}: date must be YYYY or YYYY-MM, got {e.get('date')!r}")
         if model.is_upcoming(e.get("date")) and e.get("visibility") == "public":
             warnings.append(f"{where}: upcoming AND public — confirm it is announced")
+        if e.get("featured") and e.get("visibility") != "public":
+            errors.append(f"{where}: featured but not public — the homepage would leak it")
 
     # --- publications ------------------------------------------------------
     for p in data["publications"]:
@@ -84,6 +86,10 @@ def check(data):
             walk(node, name)
 
     # --- completeness ------------------------------------------------------
+    # The homepage news list is hand-picked, so it is the one list that goes
+    # quietly empty by neglect rather than by a change to the code.
+    if not any(e.get("featured") for e in data["events"]):
+        warnings.append("events.yml: nothing marked featured — the homepage news list is empty")
     for name in ("outreach", "service"):
         if not data[name]:
             warnings.append(f"{name}.yml: empty — still to be filled from the Spanish CV")

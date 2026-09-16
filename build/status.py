@@ -8,7 +8,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import model                                      # noqa: E402
 import validate                                   # noqa: E402
 
-PAGES = {"home": True, "research": True, "publications": True, "teaching": True}
+PAGES = {"home": True, "research": True, "publications": True}
 
 
 def main():
@@ -18,6 +18,10 @@ def main():
         node = data[name]
         n = len(node) if hasattr(node, "__len__") else 1
         print(f"  {name:16} {n:>3} entries" + ("   EMPTY" if not n else ""))
+    featured = [e for e in data["events"] if e.get("featured")]
+    print(f"\nhomepage news   {len(featured)} events marked featured in events.yml")
+    for e in featured:
+        print(f"  {str(e['date']):8} {model.field(e, 'name', 'en')[:58]}")
     print("\npages")
     for page, built in PAGES.items():
         print(f"  {page:16} {'built (en + es)' if built else 'not built — nav links to #'}")
