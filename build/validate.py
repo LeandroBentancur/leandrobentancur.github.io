@@ -95,6 +95,13 @@ def check(data):
             warnings.append(f"{name}.yml: empty — still to be filled from the Spanish CV")
     if not people["links"]["cvuy"]:
         warnings.append("person.links.cvuy: empty — the nav CV link points nowhere")
+    # Search Console proves ownership by fetching a file, or by reading a meta
+    # tag. Delete both and verification lapses without anything failing: the
+    # site keeps building and Google quietly stops reporting on it.
+    if not (people.get("google_site_verification")
+            or list((model.ROOT / "site/static").glob("google*.html"))):
+        warnings.append("Search Console: no verification file in site/static/ and no "
+                        "google_site_verification in person.yml — ownership will lapse")
     for lang in model.LANGS:
         missing = [r["id"] for r in data["research"]
                    if not (model.ROOT / f"content/research/{r['id']}.{lang}.md").exists()]
