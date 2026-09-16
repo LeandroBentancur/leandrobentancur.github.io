@@ -13,6 +13,10 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined  # noqa: E402
 
 ROOT = model.ROOT
 OUT = ROOT / "docs"
+# "The site root, verbatim." The stylesheet, the fonts, and anything a third
+# party insists on serving from the top level — Google's verification file, a
+# CNAME for a custom domain. Drop a file in here and it gets published.
+STATIC = ROOT / "site/static"
 # Pages that actually exist. Nav links to anything else resolve to "#" rather
 # than to a 404 — add a name here the moment its template lands.
 BUILT = {"home", "research", "publications"}
@@ -20,9 +24,10 @@ BUILT = {"home", "research", "publications"}
 # under /es/ — the user site sits at the domain root, so links are root-relative
 # and a page at any depth keeps working.
 PAGES = ["home", "research", "publications"]
-# Directories under docs/ that are not pages. The prune step below would
-# otherwise delete them as stale on every build and copy them straight back.
-STATIC_DIRS = {"fonts"}
+# Directories under docs/ that are not pages: whatever site/static/ contributes.
+# The prune step below would otherwise delete them as stale on every build and
+# copy them straight back.
+STATIC_DIRS = {p.name for p in STATIC.iterdir() if p.is_dir()}
 
 
 def path_for(page, lang):
@@ -158,9 +163,11 @@ def render():
         print(f"  removed {stale.relative_to(ROOT)}/ — no longer a page")
 
     (OUT / "favicon.svg").write_text(motif.document(), encoding="utf-8")
-    shutil.copy(ROOT / "site/static/style.css", OUT / "style.css")
-    # The typeface is served from this origin, so it ships with the site.
-    shutil.copytree(ROOT / "site/static/fonts", OUT / "fonts", dirs_exist_ok=True)
+    for item in sorted(STATIC.iterdir()):
+        if item.is_dir():
+            shutil.copytree(item, OUT / item.name, dirs_exist_ok=True)
+        else:
+            shutil.copy(item, OUT / item.name)
     for name in ("photo.jpg", "poster-focm.jpg"):
         src = ROOT / "assets" / name
         if src.exists():
@@ -190,7 +197,8 @@ def render():
     (OUT / "robots.txt").write_text(
         f"User-agent: *\nAllow: /\n\nSitemap: {site_url}/sitemap.xml\n",
         encoding="utf-8")
-    print("  docs/style.css, docs/favicon.svg, images, sitemap.xml, robots.txt")
+    print("  docs/favicon.svg, images, sitemap.xml, robots.txt, "
+          + ", ".join(sorted(p.name for p in STATIC.iterdir())))
 
 
 if __name__ == "__main__":

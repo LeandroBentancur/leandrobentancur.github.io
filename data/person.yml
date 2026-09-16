@@ -37,8 +37,10 @@ emails:
 # Where this site lives. The canonical URL, the hreflang pair and the social
 # preview card are all built from it, so it has to be the real origin.
 site_url: https://leandrobentancur.github.io
-# Google Search Console -> add property -> URL prefix -> "HTML tag": paste only
-# the content="..." value here, not the whole tag. Empty means no tag is emitted.
+# Empty on purpose: ownership is proved by the file Search Console handed him,
+# site/static/google4acf529a12d60164.html, which is published at the site root.
+# This field is the other way of doing it — paste only the content="..." value
+# from Search Console's "HTML tag" option and the meta tag reappears.
 google_site_verification: ""
 
 links:
