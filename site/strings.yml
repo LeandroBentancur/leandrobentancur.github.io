@@ -1,0 +1,61 @@
+# Every word of UI chrome, both languages. Content strings live in content/.
+en:
+  lang_name: English
+  other_lang_name: Español
+  nav: {home: Home, research: Research, publications: Publications & Talks,
+        teaching: Teaching, cv: CV}
+  news_heading: Recent & upcoming
+  news_soon: soon
+  publications_heading: Publications
+  teaching_heading: Teaching
+  research_heading: Research
+  roles: {oral: talk, poster: poster, attended: attended, visit: visit,
+          organizer: organiser}
+  preprint: Preprint
+  and: and
+  hosted_by: Hosted by
+  teaching_blurb: >-
+    I have taught at Udelar since 2016, currently {course} at the Centro de Matemática.
+    Course pages, materials and office hours are in Spanish, on the
+  teaching_link: teaching page
+  all_publications: All publications and talks
+  active_lines: Active lines
+  earlier_work: Earlier work
+  with_whom: With
+  related_work: Related work
+  talks_heading: Talks and presentations
+  attended_heading: Conferences and schools attended
+  courses_heading: Courses
+  positions_heading: Appointments
+  present: present
+  photo_caption: Explaining the poster at FoCM 2026, University of Vienna
+es:
+  lang_name: Español
+  other_lang_name: English
+  nav: {home: Inicio, research: Investigación, publications: Publicaciones y charlas,
+        teaching: Enseñanza, cv: CV}
+  news_heading: Reciente y próximo
+  news_soon: pronto
+  publications_heading: Publicaciones
+  teaching_heading: Enseñanza
+  research_heading: Investigación
+  roles: {oral: charla, poster: póster, attended: asistencia, visit: visita,
+          organizer: organización}
+  preprint: Preprint
+  and: y
+  hosted_by: Anfitrión
+  teaching_blurb: >-
+    Doy clase en la Udelar desde 2016, actualmente {course} en el Centro de Matemática.
+    Los programas, materiales y horas de consulta están en la
+  teaching_link: página de enseñanza
+  all_publications: Todas las publicaciones y charlas
+  active_lines: Líneas activas
+  earlier_work: Trabajo anterior
+  with_whom: Con
+  related_work: Trabajos relacionados
+  talks_heading: Charlas y presentaciones
+  attended_heading: Congresos y escuelas
+  courses_heading: Cursos
+  positions_heading: Cargos
+  present: presente
+  photo_caption: Explicando el póster en FoCM 2026, Universidad de Viena

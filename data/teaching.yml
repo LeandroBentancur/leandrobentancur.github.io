@@ -1,0 +1,105 @@
+# COURSES — canonical ids. A course exists exactly once and carries a list of
+# offerings; a year cannot disagree with itself because there is one place to
+# write it. Updated once per semester: add an offering line.
+#
+# institution: cmat (Facultad de Ciencias) | imerl (Facultad de Ingeniería) | cure
+# role: assistant (grado 2) | teaching-assistant (grado 1)
+
+- id: computacion-matematica
+  name: {es: Computación Matemática, en: Mathematical Computing}
+  offerings:
+    - {year: 2026, institution: cmat, role: assistant}
+
+- id: probabilidad-y-estadistica
+  name: {es: Probabilidad y Estadística, en: Probability and Statistics}
+  offerings:
+    - {year: 2025, institution: cmat, role: assistant}
+
+- id: cadenas-markov-controladas
+  name: {es: Cadenas de Markov Controladas, en: Controlled Markov Chains}
+  # The descriptive title the course was advertised under:
+  public_title:
+    en: "Markov Decision Processes: An Introduction to Reinforcement Learning"
+  offerings:
+    - {year: 2025, institution: cmat, role: assistant}
+
+- id: aprendizaje-automatico
+  name: {es: Aprendizaje Automático, en: Machine Learning}
+  offerings:
+    - {year: 2024, institution: cmat, role: assistant}
+
+- id: probabilidad
+  name: {es: Probabilidad, en: Probability}
+  offerings:
+    - {year: 2024, institution: cmat, role: assistant}
+
+- id: matematica-2-biociencias
+  # Appeared as "Matemática II", "Mathematics II for biosciences" and
+  # "Mathematics (for biogeosciences)" across sources. One id, one name.
+  name: {es: Matemática 2 (Biociencias), en: Mathematics 2 (Biosciences)}
+  offerings:
+    - {year: 2023, institution: cmat, role: assistant}
+
+- id: matematica-discreta
+  name: {es: Matemática Discreta, en: Discrete Mathematics}
+  offerings:
+    - {year: 2021, institution: cmat, role: teaching-assistant}
+    - {year: 2020, institution: cmat, role: teaching-assistant}
+
+- id: temas-de-geometria
+  name: {es: Temas de Geometría, en: Topics in Geometry}
+  offerings:
+    - {year: 2020, institution: cmat, role: teaching-assistant}
+    - {year: 2018, institution: cmat, role: teaching-assistant}
+    - {year: 2016, institution: cmat, role: teaching-assistant}
+
+- id: variable-compleja
+  name: {es: Funciones de Variable Compleja, en: Functions of a Complex Variable}
+  offerings:
+    - {year: 2019, institution: cmat, role: teaching-assistant}
+
+- id: grupos-y-galois
+  name: {es: Grupos y Teoría de Galois, en: Groups and Galois Theory}
+  offerings:
+    - {year: 2019, institution: cmat, role: teaching-assistant}
+
+- id: algebra-lineal-1-fisica
+  # The live site renders this with a broken character: "Ĺinear Algebra I".
+  name: {es: Álgebra Lineal I (Física), en: Linear Algebra I (Physics)}
+  offerings:
+    - {year: 2018, institution: cmat, role: teaching-assistant}
+
+- id: calculo-varias-variables
+  name:
+    es: Cálculo Diferencial e Integral en Varias Variables
+    en: Differential and Integral Calculus in Several Variables
+  offerings:
+    - {year: 2023, institution: imerl, role: assistant}
+    - {year: 2022, institution: imerl, role: teaching-assistant}
+    - {year: 2019, institution: imerl, role: teaching-assistant}
+      # CONFLICT: the live site says 2020 for this one. CV says 2019.
+
+- id: matematica-discreta-2
+  name: {es: Matemática Discreta 2, en: Discrete Mathematics II}
+  offerings:
+    - {year: 2023, institution: imerl, role: assistant}
+
+- id: gal-1
+  name: {es: Geometría y Álgebra Lineal I, en: Geometry and Linear Algebra I}
+  offerings:
+    - {year: 2022, institution: imerl, role: teaching-assistant}
+    - {year: 2020, institution: imerl, role: teaching-assistant}
+    - {year: 2018, institution: imerl, role: teaching-assistant}
+      # CONFLICT: the live site lists 2019 instead of 2018.
+
+- id: gal-2
+  name: {es: Geometría y Álgebra Lineal II, en: Geometry and Linear Algebra II}
+  offerings:
+    - {year: 2020, institution: imerl, role: teaching-assistant}
+
+- id: calculo-una-variable
+  name:
+    es: Cálculo Diferencial e Integral en Una Variable
+    en: Differential and Integral Calculus in One Variable
+  offerings:
+    - {year: 2019, institution: imerl, role: teaching-assistant}

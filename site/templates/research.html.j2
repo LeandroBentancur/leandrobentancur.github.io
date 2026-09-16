@@ -1,0 +1,52 @@
+{% extends "base.html.j2" %}
+{% block content %}
+
+  <section class="lead">
+    <h1 class="page-title">{{ s.research_heading }}</h1>
+    <div class="bio">{{ intro|safe }}</div>
+  </section>
+
+  <figure class="wide">
+    <img src="/poster-focm.jpg" alt="{{ s.photo_caption }}" width="1200" height="800">
+    <figcaption>{{ s.photo_caption }}</figcaption>
+  </figure>
+
+  <section class="band">
+    <h2>{{ s.active_lines }}</h2>
+    {% for line in active %}
+    <article class="line">
+      <h3>{{ line.title }}</h3>
+      {% if line.collaborators %}
+      <p class="with">{{ s.with_whom }} {{ line.collaborators }}</p>
+      {% endif %}
+      {{ line.prose|safe }}
+      {% if line.publications %}
+      <div class="related">
+        <span class="rel-label">{{ s.related_work }}</span>
+        <ul>
+          {% for p in line.publications %}
+          <li>{{ p.title[lang] if p.title is mapping else p.title }}
+            {% if p.get('doi') %}<a href="https://doi.org/{{ p.doi }}">doi:{{ p.doi }}</a>
+            {% elif p.get('arxiv') %}<a href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv:{{ p.arxiv }}</a>
+            {% endif %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </section>
+
+  {% if past %}
+  <section class="band">
+    <h2>{{ s.earlier_work }}</h2>
+    {% for line in past %}
+    <article class="line">
+      <h3>{{ line.title }}</h3>
+      {{ line.prose|safe }}
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+{% endblock %}

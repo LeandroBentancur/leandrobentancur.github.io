@@ -1,0 +1,25 @@
+# This repository is PUBLIC. Anything that cannot be read by a stranger has to
+# be absent from it, not merely marked private in a committed file.
+
+# Personal data for Uruguayan trámites — C.I., date of birth, phone — lives in
+# ../cv-build/private.yml, outside this repository entirely. This line is a
+# seatbelt in case a copy is ever dropped in here by mistake.
+data/private.yml
+
+# The CVUy/ANII mirror and its drift report: derived from the export in
+# ../CV/CVUY/, working notes on someone's official record, and needed only
+# locally by `make reconcile`. Regenerate with `make import-cvuy`.
+data/_cvuy_snapshot.yml
+
+# Generated. docs/ is built and deployed by .github/workflows/build.yml.
+# If you ever prefer GitHub Pages "deploy from branch", delete the docs/ line
+# here and commit the built site instead.
+docs/
+reports/
+
+# assets/ is generated too, but it IS committed: the originals live in ../Pics/,
+# outside the repo, so CI cannot derive it. Regenerate with `make images` after
+# changing a recipe, and commit the result.
+
+__pycache__/
+*.pyc

@@ -1,0 +1,37 @@
+- id: phd
+  degree: {es: Doctorado en Matemática, en: PhD in Mathematics}
+  institution: Universidad de la República
+  start: 2024
+  end: null
+  advisor: Mauricio Velasco
+  funding: Comisión Académica de Posgrado (CAP), Udelar
+  # The thesis title registered at ANII is the DROPPED polyhedral-hierarchies one.
+  # Leave blank until the new title is formally registered.
+  thesis: ""
+- id: especializacion-comunicacion
+  degree:
+    es: Especialización en Comunicación Científica y Tecnológica
+    en: Specialization in Science and Technology Communication
+  institution: Universidad de la República
+  start: 2022
+  end: null
+  note:
+    es: "19 créditos, promedio 9,74/10"
+    en: "19 credits, grade average 9.74/10"
+- id: msc
+  degree: {es: Maestría en Matemática, en: Master's Degree in Mathematics}
+  institution: Universidad de la República
+  start: 2020
+  end: 2024
+  advisor: Alvaro Rittatore
+  thesis: Representations of affine extensions of abelian varieties
+  grade: 10/10          # CONFLICT: the two stale CV forks say 11.75/12
+  funding: Comisión Académica de Posgrado (CAP), Udelar
+- id: bsc
+  degree: {es: Licenciatura en Matemática, en: Bachelor's Degree in Mathematics}
+  institution: Universidad de la República
+  start: 2014
+  end: 2020
+  advisor: Alvaro Rittatore
+  thesis: Rosenlicht's structure theorem for group schemes of finite type
+  grade: 9.66/10

@@ -1,0 +1,60 @@
+{% extends "base.html.j2" %}
+{% block content %}
+
+  <section class="hero">
+    <div>
+      <p class="affil">{{ person.role[lang] }} · {{ person.affiliation_short[lang] }}</p>
+      <h1 class="tagline">{{ person.tagline[lang] }}</h1>
+      <div class="bio">{{ bio|safe }}</div>
+      <p class="contact">{{ person.emails.institutional }} · {{ person.location[lang] }}</p>
+    </div>
+    <figure class="portrait">
+      <img src="/photo.jpg" alt="{{ person.name.first }} {{ person.name.last }}"
+           width="760" height="633">
+    </figure>
+  </section>
+
+  <section class="band">
+    <h2>{{ s.news_heading }}</h2>
+    <div class="log">
+      {% for row in news %}
+      <div class="log-row">
+        <span class="when{% if row.soon %} soon{% endif %}">{{ row.when }}</span>
+        <p class="what">{{ row.name }}<span class="kind">{{ row.role }}</span><br>
+          <span class="where">
+            {%- if row.subtitle %}{{ row.subtitle }} · {% endif -%}
+            {%- if row.host %}{{ s.hosted_by }} {{ row.host }} · {% endif -%}
+            {{ row.place }}</span>
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="band">
+    <h2>{{ s.publications_heading }}</h2>
+    <div class="bib">
+      {% for p in publications %}
+      <p>{{ p.authors|safe }} <em>{{ p.title }}</em><br>
+        <span class="meta">
+        {%- if p.status == 'published' -%}
+          {{ p.journal }} <strong>{{ p.volume }}</strong> ({{ p.year }}), {{ p.pages }}.
+          {%- if p.get('doi') %} <a href="https://doi.org/{{ p.doi }}">doi:{{ p.doi }}</a>{% endif -%}
+        {%- else -%}
+          {{ s.preprint }}, {{ p.year }}.
+          {%- if p.get('arxiv') %} <a href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv:{{ p.arxiv }}</a>{% endif -%}
+        {%- endif -%}
+        </span>
+      </p>
+      {% endfor %}
+    </div>
+    <p class="contact"><a href="{{ url('publications') }}">{{ s.all_publications }} →</a></p>
+  </section>
+
+  <section class="band">
+    <h2>{{ s.teaching_heading }}</h2>
+    <p class="teach">{{ s.teaching_blurb.replace('{course}', current_course) }}
+      <a href="{{ url('teaching') }}">{{ s.teaching_link }}</a>.</p>
+  </section>
+
+{% endblock %}

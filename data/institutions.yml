@@ -1,0 +1,17 @@
+# Expanded wherever an institution id appears. Change an address once, here.
+cmat:
+  name: {es: Centro de Matemática, en: Centro de Matemática}
+  faculty: {es: Facultad de Ciencias, en: Faculty of Sciences}
+  university: Universidad de la República
+  short: CMAT, FCien, Udelar
+imerl:
+  name:
+    es: Instituto de Matemática y Estadística Rafael Laguardia
+    en: Instituto de Matemática y Estadística Rafael Laguardia (IMERL)
+  faculty: {es: Facultad de Ingeniería, en: Faculty of Engineering}
+  university: Universidad de la República
+  short: IMERL, FIng, Udelar
+cure:
+  name: {es: Centro Universitario Regional del Este, en: Centro Universitario Regional del Este}
+  university: Universidad de la República
+  short: CURE, Udelar

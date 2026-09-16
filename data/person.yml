@@ -1,0 +1,42 @@
+# WHO — changes almost never. Hand-edited.
+name:
+  first: Leandro
+  last: Bentancur
+# CVUy/ANII registers the two-surname legal form; everything public uses the short one.
+legal_name: Leandro Bentancur Rodríguez
+cite_names: ["Bentancur, L.", "L. Bentancur"]   # used to bold yourself in reference lists
+
+role:
+  en: PhD candidate
+  es: Estudiante de doctorado
+affiliation:
+  en: Centro de Matemática, Facultad de Ciencias, Universidad de la República
+  es: Centro de Matemática, Facultad de Ciencias, Universidad de la República
+affiliation_short:
+  en: Centro de Matemática, Universidad de la República
+  es: Centro de Matemática, Universidad de la República
+location:
+  en: Montevideo, Uruguay
+  es: Montevideo, Uruguay
+citizenship:
+  en: Uruguayan
+  es: Uruguaya
+
+# The homepage headline. One sentence, the first thing anyone reads.
+tagline:
+  en: Christoffel–Darboux kernels and the recovery of densities from moments.
+  es: Núcleos de Christoffel–Darboux y la recuperación de densidades a partir de momentos.
+
+emails:
+  institutional: leandrob@cmat.edu.uy    # official
+  personal: bentancurleandro@gmail.com   # fine to publish
+  # NOTE: the Spanish CVs carry the typo bentancurleandro@gmail.com.uy — invalid TLD.
+
+links:
+  cmat: https://www.cmat.edu.uy/docentes/bentancur-leandro
+  arxiv: https://arxiv.org/a/bentancur_l_1
+  # The public ANII export link, verbatim as CVUy generates it (the "//cv/"
+  # double slash is theirs). This is what the nav "CV" item points to.
+  cvuy: "https://exportcvuy.anii.org.uy//cv/?9b7af26d7b9a236265eeab75a5790618"
+  orcid: ""     # TODO
+  scholar: ""   # TODO

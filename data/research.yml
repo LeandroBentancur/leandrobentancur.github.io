@@ -1,0 +1,32 @@
+# WHAT YOU WORK ON — changes when a line starts or ends (years, not months).
+# Prose lives in content/research/<id>.{en,es}.md; this file is only structure.
+- id: cd-kernels
+  status: active
+  order: 1
+  title:
+    en: Christoffel–Darboux kernels, mollification and density recovery
+    es: Núcleos de Christoffel–Darboux, mollificación y recuperación de densidades
+  collaborators: [Mauricio Velasco, Didier Henrion]
+
+- id: fekete
+  status: active
+  order: 2
+  title:
+    en: The Fekete problem
+    es: El problema de Fekete
+  collaborators:
+    [Diego Armentano, Federico Carrasco, Marcelo Fiori, Pedro Raigorodsky,
+     Matías Valdés, Mauricio Velasco]
+
+# Past line — the MSc work. Shown on Research under "Earlier work", kept in the CV.
+- id: affine-extensions
+  status: past
+  order: 3
+  title:
+    en: Representation theory of affine extensions of abelian varieties
+    es: Teoría de representaciones de extensiones afines de variedades abelianas
+  collaborators: [Alvaro Rittatore]
+
+# DROPPED 2026: "Jerarquías poliedrales para la optimización polinomial en espacios
+# homogéneos". Still registered as the PhD title at ANII — fix at the source, never
+# re-add it here. See build/reconcile.py output.

@@ -1,0 +1,385 @@
+# TRAVEL, TALKS AND ATTENDANCE — one entry per event, the highest-churn file.
+# This single list feeds three things: the homepage news, the CV's "Talks and
+# Presentations" (role: oral|poster) and the CV's "Conferences and Schools
+# Attended" (every public entry). One event was previously typed twice, once in
+# each CV section — that is what this file exists to prevent.
+#
+# role:       oral | poster | attended | visit | organizer
+# date:       YYYY-MM preferred, YYYY when the month is genuinely unknown.
+#             Public pages print month + year only, never day ranges.
+# visibility: public   — everything in this file, and there is no other kind.
+#             The repository is public, so an event that is not announced yet
+#             does not belong in it at all. Keep it out until it is announced;
+#             marking a committed row "private" hides it from the page, not
+#             from anyone reading the repo.
+# i18n:       fields are English; add name_es / place_es only when they differ.
+
+- id: laas-visit-2026
+  name: Research visit, LAAS–CNRS
+  name_es: Visita de investigación, LAAS–CNRS
+  kind: visit
+  role: visit
+  host: Didier Henrion
+  place: Toulouse, France
+  place_es: Toulouse, Francia
+  date: 2026-09          # 7–11 Sep; the page shows the month only
+  visibility: public
+
+- id: albatross-2026
+  name: Albatross 2026
+  subtitle: ALgeBrAic meThods foR pOlynomial System Solving
+  kind: conference
+  role: attended
+  place: Paris, France
+  place_es: París, Francia
+  date: 2026-09          # 1–4 Sep 2026
+  visibility: public
+
+- id: focm-2026
+  name: Foundations of Computational Mathematics (FoCM 2026)
+  kind: conference
+  role: poster
+  title: ""              # TODO: exact poster title as submitted to FoCM
+  place: University of Vienna, Austria
+  place_es: Universidad de Viena, Austria
+  date: 2026-07
+  visibility: public
+
+- id: clapem-2026
+  name: XVII CLAPEM — Latin American Congress of Probability and Mathematical Statistics
+  name_es: XVII CLAPEM — Congreso Latinoamericano de Probabilidad y Estadística Matemática
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2026
+  visibility: public
+
+- id: prob-stat-seminar-2026
+  name: Probability and Statistics Seminar, Udelar
+  name_es: Seminario de Probabilidad y Estadística, Udelar
+  kind: seminar
+  role: oral
+  title: Moments, the Christoffel–Darboux kernel and density recovery
+  place: Montevideo, Uruguay
+  date: 2026-03
+  visibility: public
+
+- id: solace-2025
+  name: SOLACE seminar, LAAS–CNRS
+  name_es: Seminario SOLACE, LAAS–CNRS
+  kind: seminar
+  role: oral
+  title: The moment problem on the sphere via a regularized Christoffel function
+  place: Toulouse, France
+  place_es: Toulouse, Francia
+  date: 2025-11          # CVUy records 2026 — that is a data-entry error at ANII
+  visibility: public
+
+- id: matemax-2025
+  name: MATEMAX — Computational Algebra, Algebraic Geometry and Applications II
+  kind: conference
+  role: poster
+  title: Mollified Christoffel–Darboux kernels and the recovery of densities from moments
+  place: Universidad de Buenos Aires, Argentina
+  date: 2025
+  visibility: public
+
+- id: coloquio-uruguayo-2025
+  name: 9th Uruguayan Colloquium of Mathematics
+  name_es: 9º Coloquio Uruguayo de Matemática
+  kind: conference
+  role: poster
+  title: The moment problem on the sphere via the mollified Christoffel function
+  place: Udelar, Montevideo, Uruguay
+  date: 2025
+  visibility: public
+
+- id: cicada-congress-2025
+  name: 1st CICADA Congress
+  name_es: 1er Congreso CICADA
+  kind: conference
+  role: poster
+  title: The moment problem on the sphere via the mollified Christoffel function
+  place: Udelar, Montevideo, Uruguay
+  date: 2025
+  visibility: public
+
+- id: spring-school-dl-2025
+  name: Spring School on Deep Learning
+  name_es: Escuela de Primavera en Deep Learning
+  kind: school
+  role: poster
+  title: The moment problem on the sphere via the mollified Christoffel function
+  place: Universidad de Buenos Aires, Argentina
+  date: 2025
+  visibility: public
+
+- id: braunschweig-2025
+  name: Summer School on Nonlinear Optimization and Combinatorics
+  kind: school
+  role: poster
+  title: Mollified Christoffel–Darboux kernels and the recovery of densities from moments
+  place: TU Braunschweig, Germany
+  place_es: TU Braunschweig, Alemania
+  date: 2025
+  visibility: public
+
+- id: khipu-2025
+  name: Khipu 2025 — Latin American Meeting in Artificial Intelligence
+  kind: conference
+  role: attended
+  place: Santiago, Chile
+  date: 2025
+  visibility: public
+
+- id: iesta-colloquium-2024
+  name: Colloquium of the Institute of Statistics (IESTA), FCEA, Udelar
+  name_es: Coloquio del Instituto de Estadística (IESTA), FCEA, Udelar
+  kind: seminar
+  role: oral
+  title:
+    es: Distribuciones de puntos en la esfera
+    en: Distributions of points on the sphere
+  place: Montevideo, Uruguay
+  date: 2024
+  visibility: public
+
+- id: ecco-2024
+  # CONFLICT to confirm: the English CV says "VII ECCO, Universidad del Valle";
+  # the attendance list and CVUy say VIII, Popayán / Universidad del Cauca.
+  # Popayán is Universidad del Cauca, so VIII is used here.
+  name: VIII Encuentro Colombiano de Combinatoria (ECCO)
+  kind: conference
+  role: poster
+  title: Representation theory of affine extensions of abelian varieties
+  place: Universidad del Cauca, Popayán, Colombia
+  date: 2024
+  visibility: public
+
+- id: cicada-school-2024
+  # Was on the Google Sites page only — missing from all four CVs and from CVUy.
+  name: CICADA School
+  name_es: Escuela CICADA
+  kind: school
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2024
+  visibility: public
+
+- id: new-trends-stats-2024
+  name: New Trends in Mathematical Statistics II
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2024
+  visibility: public
+
+- id: shub-80-2024
+  name: From Dynamics to Complexity, and Back Again — In Celebration of Michael Shub's 80th Birthday
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2024
+  visibility: public
+
+- id: encuentro-posgrado-3-2024
+  name: Tercer Encuentro de Posgrado de Matemática
+  kind: conference
+  role: organizer      # organised it; attending is implied, never a second entry
+  place: Montevideo, Uruguay
+  date: 2024
+  visibility: public
+
+- id: jem-2023
+  name: V Jornadas Ecuatorianas de Matemáticas (V JEM)
+  kind: conference
+  role: oral
+  title: Representations of affine extensions of abelian varieties
+  place: Universidad Yachay Tech, Ecuador
+  date: 2023
+  visibility: public
+
+- id: coloquio-uruguayo-2023
+  name: VIII Uruguayan Colloquium of Mathematics
+  name_es: VIII Coloquio Uruguayo de Matemática
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2023
+  visibility: public
+
+- id: algebra-seminar-2022
+  name: Algebra Seminar, Facultad de Ingeniería, Udelar
+  name_es: Seminario de Álgebra, Facultad de Ingeniería, Udelar
+  kind: seminar
+  role: oral
+  title: Affine representations of abelian varieties
+  place: Montevideo, Uruguay
+  date: 2022
+  visibility: public
+
+- id: santalo-2022
+  name: "XXI Lluís Santaló School: Random and Deterministic Point Configurations"
+  kind: school
+  role: attended
+  place: Santander, Spain
+  place_es: Santander, España
+  date: 2022
+  visibility: public
+
+- id: panam-commutative-algebra-2022
+  name: Pan-American School in Commutative Algebra
+  kind: school
+  role: attended
+  place: Guanajuato, Mexico
+  place_es: Guanajuato, México
+  date: 2022
+  visibility: public
+
+- id: homenaje-leon-lavielle-2022
+  name: "Un Encuentro: homenaje a José Rafael León y Marc Lavielle"
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2022
+  visibility: public
+
+- id: encuentro-posgrado-2-2021
+  name: Segundo Encuentro de Estudiantes de Posgrado de Matemática
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2021
+  visibility: public
+
+- id: clam-2021
+  name: VI Latin American Congress of Mathematicians (CLAM)
+  name_es: VI Congreso Latinoamericano de Matemáticos (CLAM)
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2021
+  visibility: public
+
+- id: coloquio-uruguayo-2019
+  name: VII Uruguayan Colloquium of Mathematics
+  name_es: VII Coloquio Uruguayo de Matemática
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2019
+  visibility: public
+
+- id: quantum-19
+  name: Quantum 19 — Colloquium of Algebras and Representations
+  name_es: Quantum 19 — Coloquio de Álgebras y Representaciones
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2019
+  visibility: public
+
+- id: ciec-2019
+  name: X Congreso Iberoamericano de Educación Científica
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2019
+  visibility: public
+
+- id: rioplatense-2018
+  name: Encuentro Rioplatense de Álgebra y Geometría
+  # The brief CV labels three different editions "XXVII" — they are XXV / XXVI / XXVII.
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2018
+  visibility: public
+
+- id: cres-2018
+  name: III Regional Conference on Higher Education for Latin America and the Caribbean (CRES)
+  name_es: III Conferencia Regional de Educación Superior para América Latina y el Caribe (CRES)
+  kind: conference
+  role: attended
+  place: Córdoba, Argentina
+  date: 2018
+  visibility: public
+
+- id: rioplatense-2017
+  name: Encuentro Rioplatense de Álgebra y Geometría
+  kind: conference
+  role: attended
+  place: Buenos Aires, Argentina
+  date: 2017
+  visibility: public
+
+- id: cimpa-2017
+  name: CIMPA Research School — Group actions on algebraic varieties
+  kind: school
+  role: attended
+  place: Lima, Peru
+  place_es: Lima, Perú
+  date: 2017
+  visibility: public
+
+- id: coloquio-uruguayo-2017
+  name: VI Uruguayan Colloquium of Mathematics
+  name_es: VI Coloquio Uruguayo de Matemática
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2017
+  visibility: public
+
+- id: rioplatense-2016
+  name: Encuentro Rioplatense de Álgebra y Geometría
+  kind: conference
+  role: attended
+  place: La Plata, Argentina
+  date: 2016
+  visibility: public
+
+- id: coloquio-uruguayo-2015
+  name: V Uruguayan Colloquium of Mathematics
+  name_es: V Coloquio Uruguayo de Matemática
+  kind: conference
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2015
+  visibility: public
+
+# --- recovered from CVUy by reconcile.py (in ANII, in none of the CVs) -------
+- id: ciencia-en-escena-2022
+  name: Taller Ciencia en Escena
+  subtitle: Colectivo Bardo
+  kind: workshop
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2022
+  visibility: public
+
+- id: evaluacion-academica-2018
+  name: Taller de trabajo y reflexión sobre la evaluación académica
+  subtitle: Comisión Sectorial de Investigación Científica, Udelar
+  kind: workshop
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2018
+  visibility: public
+
+- id: lab-comunicacion-2018
+  name: Laboratorio de comunicación científica
+  subtitle: AECID Montevideo
+  kind: workshop
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2018
+  visibility: public
+
+- id: jornada-ensenanza-ciencia-2018
+  name: Jornada sobre la enseñanza de la ciencia
+  kind: workshop
+  role: attended
+  place: Montevideo, Uruguay
+  date: 2018
+  visibility: public

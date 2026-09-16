@@ -1,0 +1,40 @@
+{% extends "base.html.j2" %}
+{% block content %}
+
+  <section class="lead">
+    <h1 class="page-title">{{ s.teaching_heading }}</h1>
+    <div class="bio">{{ intro|safe }}</div>
+  </section>
+
+  <section class="band">
+    <h2>{{ s.courses_heading }}</h2>
+    {% for group in groups %}
+    <h3 class="group">{{ group.institution }}</h3>
+    <div class="log">
+      {% for c in group.courses %}
+      <div class="log-row">
+        <span class="when">{{ c.years }}</span>
+        <p class="what">{{ c.name }}
+          {% if c.public_title %}<br><span class="where">{{ c.public_title }}</span>{% endif %}
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </section>
+
+  <section class="band">
+    <h2>{{ s.positions_heading }}</h2>
+    <div class="log">
+      {% for p in positions %}
+      <div class="log-row">
+        <span class="when">{{ p.span }}</span>
+        <p class="what">{{ p.role }}<br>
+          <span class="where">{{ p.institution }}{% if p.project %} · “{{ p.project }}”{% endif %}</span>
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+{% endblock %}

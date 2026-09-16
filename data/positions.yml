@@ -1,0 +1,41 @@
+# APPOINTMENTS — changes once every year or two. Overlaps are real: two grade-1
+# posts at once is normal at Udelar.
+- id: cmat-g2
+  role: {es: Asistente (Grado 2), en: Assistant (Grade 2)}
+  institution: cmat
+  start: 2023-08
+  end: null              # null = current
+- id: imerl-g2
+  role: {es: Asistente (Grado 2), en: Assistant (Grade 2)}
+  institution: imerl
+  start: 2023-02
+  end: 2024-01
+- id: imerl-g1
+  role: {es: Ayudante (Grado 1), en: Teaching Assistant (Grade 1)}
+  institution: imerl
+  start: 2022-03
+  end: 2023-01
+- id: cure-csic-g1
+  role: {es: Ayudante (Grado 1), en: Teaching Assistant (Grade 1)}
+  institution: cure
+  project: Representations of quasi-compact group schemes, fibered categories and monoidality
+  funder: CSIC
+  start: 2021-08
+  end: 2022-02
+- id: cmat-g1
+  role: {es: Ayudante (Grado 1), en: Teaching Assistant (Grade 1)}
+  institution: cmat
+  start: 2018-08
+  end: 2021-08
+- id: imerl-g1-first
+  role: {es: Ayudante (Grado 1), en: Teaching Assistant (Grade 1)}
+  institution: imerl
+  start: 2018-08
+  end: 2021-02
+- id: cmat-csic-g1
+  role: {es: Ayudante (Grado 1), en: Teaching Assistant (Grade 1)}
+  institution: cmat
+  project: Algebraic geometry and invariant theory
+  funder: CSIC
+  start: 2016-09
+  end: 2018-07

@@ -1,0 +1,70 @@
+# COGOBIERNO — CV only, never its own page (his call, 2026-09-11).
+# Dates follow the Spanish CV, which is the long-form source for co-gobierno.
+# Two of them disagree with CVUy; see the notes.
+- id: cd-cmat-2025
+  body:
+    es: Comisión Directiva del Centro de Matemática, Facultad de Ciencias
+    en: Governing Board, Centro de Matemática, Faculty of Sciences
+  role:
+    es: Delegado suplente por el orden docente
+    en: Alternate delegate for the teaching staff
+  start: 2025
+  end: null
+- id: comision-posgrados
+  body:
+    es: Comisión Sectorial de Posgrados, Udelar
+    en: Sectoral Postgraduate Commission, Udelar
+  role:
+    es: Delegado por Estudiantes de Posgrado
+    en: Delegate for postgraduate students
+  start: 2021          # CVUy says 03/2022–12/2023 — to confirm at ANII
+  end: 2023
+- id: comision-espejo-cyt
+  body:
+    es: Comisión espejo del Área CyT a la Comisión Sectorial de Enseñanza, Udelar
+    en: Science and Technology Area mirror commission to the Sectoral Teaching
+        Commission, Udelar
+  role:
+    es: Representante por Facultad de Ciencias
+    en: Representative for the Faculty of Sciences
+  start: 2019          # CVUy says 12/2018–07/2021 — to confirm at ANII
+  end: 2021
+- id: claustro-evaluacion-docente
+  body:
+    es: Comisión de Claustro de evaluación docente de la función de enseñanza,
+        Facultad de Ciencias
+    en: Faculty assembly commission on teaching evaluation, Faculty of Sciences
+  role:
+    es: Delegado por el Orden Estudiantil
+    en: Delegate for the student order
+  start: 2018
+  end: 2020
+- id: asamblea-claustro-fcien
+  body:
+    es: Asamblea de Claustro, Facultad de Ciencias
+    en: Faculty Assembly, Faculty of Sciences
+  role:
+    es: Delegado por el Orden Estudiantil
+    en: Delegate for the student order
+  start: 2018
+  end: 2020
+- id: cse-titular-2019
+  # Distinct from comision-espejo-cyt: this is the CSE itself, not the mirror.
+  body:
+    es: Comisión Sectorial de Enseñanza, Udelar
+    en: Sectoral Teaching Commission, Udelar
+  role:
+    es: Representante titular por el Área de Tecnologías y Ciencias de la
+        Naturaleza y el Hábitat
+    en: Full representative for the Technology, Natural Sciences and Habitat Area
+  start: 2019
+  end: 2019
+- id: cd-cmat-2017
+  body:
+    es: Comisión Directiva del Centro de Matemática, Facultad de Ciencias
+    en: Governing Board, Centro de Matemática, Faculty of Sciences
+  role:
+    es: Delegado por el orden estudiantil
+    en: Delegate for the student order
+  start: 2017
+  end: 2018

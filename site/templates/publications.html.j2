@@ -1,0 +1,53 @@
+{% extends "base.html.j2" %}
+{% block content %}
+
+  <section class="lead">
+    <h1 class="page-title">{{ s.nav.publications }}</h1>
+  </section>
+
+  <section class="band">
+    <h2>{{ s.publications_heading }}</h2>
+    <div class="bib">
+      {% for p in publications %}
+      <p>{{ p.authors|safe }} <em>{{ p.title }}</em><br>
+        <span class="meta">
+        {%- if p.status == 'published' -%}
+          {{ p.journal }} <strong>{{ p.volume }}</strong> ({{ p.year }}), {{ p.pages }}.
+          {%- if p.get('doi') %} <a href="https://doi.org/{{ p.doi }}">doi:{{ p.doi }}</a>{% endif -%}
+        {%- else -%}
+          {{ s.preprint }}, {{ p.year }}.
+          {%- if p.get('arxiv') %} <a href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv:{{ p.arxiv }}</a>{% endif -%}
+        {%- endif -%}
+        </span>
+      </p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="band">
+    <h2>{{ s.talks_heading }}</h2>
+    <div class="log">
+      {% for t in talks %}
+      <div class="log-row">
+        <span class="when">{{ t.year }}</span>
+        <p class="what">
+          {%- if t.title %}{{ t.title }}{% else %}{{ t.event }}{% endif -%}
+          <span class="kind">{{ t.kind }}</span><br>
+          <span class="where">{% if t.title %}{{ t.event }} · {% endif %}{{ t.place }}</span>
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="band">
+    <h2>{{ s.attended_heading }}</h2>
+    <ul class="plain two-col">
+      {% for e in attended %}
+      <li><span class="when">{{ e.year }}</span> {{ e.name }}{% if e.role %}<span class="kind">{{ e.role }}</span>{% endif %}
+        <span class="where">{{ e.place }}</span></li>
+      {% endfor %}
+    </ul>
+  </section>
+
+{% endblock %}

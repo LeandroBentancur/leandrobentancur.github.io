@@ -1,0 +1,25 @@
+# Newest first. status: published | preprint | submitted | in-preparation
+- id: mollified-cd
+  line: cd-kernels          # -> data/research.yml
+  status: preprint
+  year: 2026
+  title: Mollified Christoffel–Darboux kernels and density recovery on varieties
+  authors: ["Bentancur, L.", "Henrion, D.", "Velasco, M."]
+  arxiv: "2603.09462"
+  note:
+    en: Submitted for publication
+    es: Enviado para su publicación
+
+- id: fekete-six-points
+  line: fekete
+  status: published
+  year: 2026
+  title: >-
+    Characterization of logarithmic Fekete critical configurations of at most
+    six points in all dimensions
+  authors: ["Armentano, D.", "Bentancur, L.", "Carrasco, F.", "Fiori, M.",
+            "Valdés, M.", "Velasco, M."]
+  journal: Journal of Symbolic Computation
+  volume: "137"
+  pages: "102570"
+  doi: 10.1016/j.jsc.2026.102570
